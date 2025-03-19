@@ -109,3 +109,34 @@ textarea {
   font-family: 'Dancing Script', cursive;
   font-size: 50px;
 }
+.gif-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 1000;
+  border-radius: 50px;
+}
+.gif-container img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  object-fit: contain; /* Hiển thị đầy đủ ảnh */
+}
+
+.success-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  color: #ff477e;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  display: none;
+  z-index: 1001;
+  text-align: center;
+}

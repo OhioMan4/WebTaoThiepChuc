@@ -1,4 +1,6 @@
 let selectedOccasion = "";
+let typeofGif=document.getElementById("giftype");
+
 
 function scrollToForm() {
     document.getElementById("formSection").scrollIntoView({ behavior: "smooth" });
@@ -26,17 +28,38 @@ function generateLink() {
     return `http://127.0.0.1:5500/greeting.html?occasion=${encodeURIComponent(selectedOccasion)}&message=${encodedMessage}&card=${cardSrc}`;
 }
 function copyLink() {
+    typeofGif.src="asset/sending.gif"
     let link = generateLink();
     if (link) {
+        showGif(true);
         navigator.clipboard.writeText(link).then(() => {
-            alert("Liên kết đã được sao chép!");
         });
     }
 }
 
 function openLink() {
+    typeofGif.src="asset/open.gif"
     let link = generateLink();
     if (link) {
-        window.open(link, '_blank');
+        showGif(false,()=>{
+        window.open(link, '_blank')
+    });
     }
+}
+function showGif(type=true,callbacks) {
+    let gifContainer = document.getElementById("gifContainer");
+    let successMessage = document.getElementById("successMessage");
+
+    // Hiện GIF
+    gifContainer.style.display = "block";
+
+    setTimeout(() => {
+        gifContainer.style.display = "none";
+        if(type) successMessage.style.display = "block";
+
+        setTimeout(() => {
+            successMessage.style.display = "none"; 
+            callbacks();
+        }, 1500);
+    }, 4000);
 }
