@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Chúc Mừng</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Hãy gửi những lời chúc tốt đẹp đến với người quan trọng đối với bạn</h1>
+        <button class="start-btn" onclick="scrollToCards()">Bắt đầu</button>
+    </div>
+
+    <div class="card-section" id="cardSection">
+        <h2 style="font-size: 2.5rem;  font-family: 'Dancing Script', cursive; color: #ff477e; margin-bottom: 25px;" >Chọn Thiệp</h2>
+        <div class="card-slider">
+            <img src="asset/20_10.webp" class="card" alt="20/10" onclick="selectCard(this, '20/10')">
+            <img src="asset/flower.png" class="card" alt="8/3" onclick="selectCard(this, '8/3')">
+            <img src="asset/20_11.webp" class="card" alt="20/11" onclick="selectCard(this, '20/11')">
+            <img src="asset/14_2.avif" class="card" alt="14/2" onclick="selectCard(this, '14/2')">
+        </div>
+        <button class="next-btn" onclick="scrollToForm()">Next</button>
+    </div>
+
+    <div class="form-section" id="formSection">
+        <h1 class="headerform">Nhập Lời Chúc</h1>
+        <textarea id="message" placeholder="Nhập lời chúc của bạn..."></textarea>
+       
+        <div class="button-group">
+            <button class="copy-btn" onclick="copyLink()">Sao Chép Liên Kết</button>
+            <button class="open-btn" onclick="openLink()">Mở Liên Kết</button>
+        </div>
+    </div>
+    
+    
+    <script src="index.js">
+       
+    </script>
+</body>
+</html>

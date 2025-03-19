@@ -1,0 +1,111 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Dancing Script', cursive;
+}
+.banner {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  color: white;
+  padding: 5%;
+}
+.banner h1 {
+  font-size: 3.5rem;
+  font-family: 'Dancing Script', cursive;
+}
+.start-btn {
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  background: white;
+  color: #ff477e;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.start-btn:hover {
+  background: #d63384;
+  color: white;
+}
+.form-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  padding: 5%;
+}
+textarea {
+  width: 85%;
+  padding: 18px;
+  border-radius: 20px;
+  border: none;
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  outline: none;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+.next-btn, .copy-btn, .open-btn {
+  background: white;
+  color: #ff477e;
+  border: none;
+  padding: 18px 35px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: 0.3s;
+  font-weight: bold;
+  margin-top: 15px;
+}
+.next-btn:hover, .copy-btn:hover, .open-btn:hover {
+  background: #d63384;
+  color: white;
+}
+.card-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff5f7;
+  position: relative;
+  padding: 20px 0;
+}
+.card-slider {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.card {
+  width: 210px;
+  height: 280px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+  border: 5px solid transparent;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+.card:hover, .card.selected {
+  transform: scale(1.1);
+  border: 5px solid #ff477e;
+}
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+.headerform{
+  font-family: 'Dancing Script', cursive;
+  font-size: 50px;
+}
