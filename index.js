@@ -1,14 +1,55 @@
 let selectedOccasion = "";
-let typeofGif=document.getElementById("giftype");
+let typeofGif = document.getElementById("giftype");
 
+function disableScroll() {
+  window.addEventListener('wheel', preventDefault, { passive: false });
+}
+function preventDefault(e) {
+  e.preventDefault();
+}
+const slides = [
+  document.getElementById('bannerSection'),
+  document.getElementById('cardSection'),
+  document.getElementById('formSection'),
+];
 
-function scrollToForm() {
-    document.getElementById("formSection").scrollIntoView({ behavior: "smooth" });
+let currentIndex = 0;
+
+// function playAnimation(element) {
+//   element.classList.remove('animate');   
+//   void element.offsetWidth;               
+//   element.classList.add('animate');      
+// }
+
+function reloadSlide(index) {
+  if (index < 0 || index >= slides.length) return;
+  
+  const slide = slides[index];
+  const parent = slide.parentNode;
+  const clone = slide.cloneNode(true); 
+
+  parent.replaceChild(clone, slide);
+  slides[index] = clone;
 }
 
-function scrollToCards() {
-    document.getElementById("cardSection").scrollIntoView({ behavior: "smooth" });
+function scrollToSlide(index) {
+  if (index < 0 || index >= slides.length) return; 
+  currentIndex = index;
+  reloadSlide(index)
+  slides[index].scrollIntoView({ behavior: 'smooth' });
+   
+
+  disableScroll();
 }
+
+function nextSlide() {
+  scrollToSlide(currentIndex + 1);
+}
+
+function prevSlide() {
+  scrollToSlide(currentIndex - 1);
+}
+
 
 function selectCard(card, occasion) {
     document.querySelectorAll(".card").forEach(c => c.classList.remove("selected"));
@@ -27,8 +68,9 @@ function generateLink() {
     let cardSrc = encodeURIComponent(selectedCard.src);
     return `http://127.0.0.1:5500/greeting.html?occasion=${encodeURIComponent(selectedOccasion)}&message=${encodedMessage}&card=${cardSrc}`;
 }
+
 function copyLink() {
-    typeofGif.src="asset/sending.gif"
+    typeofGif.src = "asset/sending.gif";
     let link = generateLink();
     if (link) {
         showGif(true, () => {
@@ -40,24 +82,24 @@ function copyLink() {
 }
 
 function openLink() {
-    typeofGif.src="asset/open.gif"
+    typeofGif.src = "asset/open.gif";
     let link = generateLink();
     if (link) {
-        showGif(false,()=>{
-        window.open(link, '_blank')
-    });
+        showGif(false, () => {
+            window.open(link, '_blank');
+        });
     }
 }
-function showGif(type=true, callbacks) {
+
+function showGif(type = true, callbacks) {
     let gifContainer = document.getElementById("gifContainer");
     let successMessage = document.getElementById("successMessage");
 
-    // Hiện GIF
     gifContainer.style.display = "block";
 
     setTimeout(() => {
         gifContainer.style.display = "none";
-        if(type) {
+        if (type) {
             successMessage.style.display = "block";
             setTimeout(() => {
                 successMessage.style.display = "none"; 
@@ -68,6 +110,7 @@ function showGif(type=true, callbacks) {
         }
     }, 4000);
 }
+
 function showShareOptions() {
     let shareContainer = document.getElementById("shareContainer");
     shareContainer.style.display = "block";
@@ -100,16 +143,13 @@ function shareTo(platform) {
     }
 
     if (shareUrl) {
-        // Thêm loading state
         const shareBtn = document.querySelector(`.share-btn.${platform}`);
         const originalText = shareBtn.innerHTML;
         shareBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Đang chia sẻ...';
         shareBtn.disabled = true;
 
-        // Mở cửa sổ chia sẻ
         const shareWindow = window.open(shareUrl, "_blank", "width=600,height=400");
         
-        // Kiểm tra nếu cửa sổ bị chặn
         if (!shareWindow) {
             alert("Vui lòng cho phép popup để chia sẻ!");
             shareBtn.innerHTML = originalText;
@@ -117,7 +157,6 @@ function shareTo(platform) {
             return;
         }
 
-        // Khôi phục trạng thái nút sau 2 giây
         setTimeout(() => {
             shareBtn.innerHTML = originalText;
             shareBtn.disabled = false;
@@ -125,7 +164,6 @@ function shareTo(platform) {
     }
 }
 
-// Thêm xử lý đóng chia sẻ khi click bên ngoài
 document.addEventListener('click', function(event) {
     const shareContainer = document.getElementById('shareContainer');
     if (event.target === shareContainer) {
@@ -133,7 +171,6 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// Thêm xử lý đóng chia sẻ khi nhấn ESC
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeShare();

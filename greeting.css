@@ -4,21 +4,27 @@ body {
   align-items: center;
   height: 100vh;
   background: linear-gradient(to right, #ff9a9e, #fad0c4);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Dancing Script', cursive;
+}
+.imgg{
+  width: 100%;
+  height: 100%;
+   border-radius: 15px;
 }
 .card-container {
   display: flex;
   background: white;
-  padding: 30px;
+  padding: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   max-width: 800px;
   width: 100%;
-  height: 400px;
+  height: 600px;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeIn 1s forwards;
   flex-direction: row;
+  border:5px solid #FFD166;
 }
 @keyframes fadeIn {
   to {
@@ -26,22 +32,28 @@ body {
       transform: translateY(0);
   }
 }
-.text-container {
-  flex: 1;
+.text-card-container{
   display: flex;
-  flex-direction: column;
+  flex: 1;
+  position: relative;
   justify-content: center;
-  padding-right: 20px;
+  border-radius: 15px;
+}
+.text-container {
+  position:absolute;
+  top: 140px;
 }
 .occasion-text {
-  font-size: 2.5rem;
-  font-family: 'Pacifico', cursive;
-  color: #d63384;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  font-family:'Dancing Script', cursive;
+  color: #FF6F61;
 }
 .message-box {
-  font-size: 1.5rem;
-  color: #ff477e;
+  width: 200px;
+  align-self: center;
+  justify-items: center;
+  font-size: 1.3rem;
+  color: #006D77;
   word-wrap: break-word;
   white-space: pre-line;
 }
@@ -54,7 +66,7 @@ body {
 .image-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   border-radius: 15px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
