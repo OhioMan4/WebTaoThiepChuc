@@ -66,9 +66,11 @@ function generateLink() {
     }
     let encodedMessage = encodeURIComponent(message);
     let cardSrc = encodeURIComponent(selectedCard.src);
-    window.location.href="greeting.html";
+    window.location.href=`https://ohioman4.github.io/WebTaoThiepChuc/greeting.html?occasion=${encodeURIComponent(selectedOccasion)}&message=${encodedMessage}&card=${cardSrc}`;
     return `https://ohioman4.github.io/WebTaoThiepChuc/greeting.html?occasion=${encodeURIComponent(selectedOccasion)}&message=${encodedMessage}&card=${cardSrc}`;
-}
+
+}   
+
 
 function copyLink() {
     typeofGif.src = "asset/sending.gif";
