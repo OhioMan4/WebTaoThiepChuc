@@ -66,7 +66,8 @@ function generateLink() {
     }
     let encodedMessage = encodeURIComponent(message);
     let cardSrc = encodeURIComponent(selectedCard.src);
-    return `http://127.0.0.1:5500/greeting.html?occasion=${encodeURIComponent(selectedOccasion)}&message=${encodedMessage}&card=${cardSrc}`;
+    window.location.href="greeting.html";
+    return `https://ohioman4.github.io/WebTaoThiepChuc/?occasion=${encodeURIComponent(selectedOccasion)}&message=${encodedMessage}&card=${cardSrc}`;
 }
 
 function copyLink() {
